@@ -1,4 +1,4 @@
-def call(){
+def call(Map pipelineParams){
 pipeline {
    agent any
 
@@ -7,11 +7,6 @@ pipeline {
       maven "Maven"
       
    }
-  environment{
-       
-      BRANCH="master"
-      GIT_URL="https://github.com/SrikarChiku/Java-my-app.git"
-  }
 
    stages {
        stage('checkout'){
@@ -35,8 +30,9 @@ pipeline {
       }
       stage ('install'){
           steps{
+	  echo "${pipelineParams.buildNumber}"
             //   bat "mvn -Dmaven.main.skip=true integration-test"
-            bat "mvn install -DbuildNumber=${BUILD_NUMBER}"
+            bat "mvn install -DbuildNumber=${pipelineParams.buildNumber}"
               
           }
           post {
