@@ -14,8 +14,9 @@ pipeline {
                // Get some code from a GitHub repository
                
             //   git 'https://github.com/SrikarChiku/Java-my-app.git'
-            git branch:"master",url:'https://github.com/SrikarChiku/Java-my-app.git'
-           }
+           // git branch:"master",url:'https://github.com/SrikarChiku/Java-my-app.git'
+           gitCheckout(branch:"master",url:'https://github.com/SrikarChiku/Java-my-app.git')
+	   }
        }
       stage('Compile') {
          steps {

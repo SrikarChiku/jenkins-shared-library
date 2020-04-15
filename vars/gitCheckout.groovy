@@ -1,4 +1,4 @@
-def call(branch,url){
-    echo "${branch} ${url}"
-    git branch: "${branch}", url: "${url}"
+def call(Map pipelineParams){
+    
+    git branch: pipelineParams.branch, url: pipelineParams.url
 }
