@@ -1,6 +1,4 @@
 def call(){
-
-@Library('jenkins-library@master') _
 pipeline {
    agent any
 
@@ -21,7 +19,7 @@ pipeline {
                // Get some code from a GitHub repository
                
             //   git 'https://github.com/SrikarChiku/Java-my-app.git'
-            gitCheckout("${BRANCH}","${GIT_URL}")
+            git branch:"master",url:'https://github.com/SrikarChiku/Java-my-app.git'
            }
        }
       stage('Compile') {
